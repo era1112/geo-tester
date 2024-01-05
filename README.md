@@ -1,9 +1,7 @@
-# pi-otg
-raspberry pi loadout for led and pushbutton control while on the move
+# geo-tester
+Expriment with gps device behavior when passed different traffic.
+Pairs great with https://github.com/era1112/pi-otg (gpio control of scripts)
 
-Use case:
-- Drive around town with your raspberry pi and push a gpio-connected button to run your script.
-- For when a single button is easier to use than bringing a keyboard/screen/whatever with you.
 
 Setup:
 - make "payload.sh" point at the script you want to run when you push the button.

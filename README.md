@@ -1,5 +1,5 @@
 # geo-tester
-Expriment with gps device behavior when passed different traffic.
+Experiment with gps device behavior when passed different traffic.
 
 Pairs great with https://github.com/era1112/pi-otg (gpio control of scripts)
 

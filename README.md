@@ -12,9 +12,9 @@ Setup:
   - https://cddis.nasa.gov/archive/gnss/data/daily/ (free login)
   - download the file at: /<current year>/<highest number>/??n/brdc*
 -  Produce research data:
-  - gps-sdr-sim -e <RINEX_FILE> -b 8 -l <COORDS>,100 -o ./researchtape.bin -v -s 2600000 -d 7200 -T 2021/02/23,20:34:00  // b8, s2600000 are rf parameters to match the hackrf, coords is lat/long, 100 is elevation, d is length of tape in seconds, T is the start time and forces toc/toe to align, o is output file.
+-    gps-sdr-sim -e <RINEX_FILE> -b 8 -l <COORDS>,100 -o ./researchtape.bin -v -s 2600000 -d 7200 -T 2021/02/23,20:34:00  // b8, s2600000 are rf parameters to match the hackrf, coords is lat/long, 100 is elevation, d is length of tape in seconds, T is the start time and forces toc/toe to align, o is output file.
 - Broadcast research data:
-  - ./gps-sim -e rinex/*.23n -l 0,0,200 -s now -g 47 -a -d 1800 -v -i -r hackrf --disable-almanac  // e is input, l is loc, s is start time, g is gain, a is amplifier on/off, d is duration, r is radio mode, vi is verbose interactive
+-   ./gps-sim -e rinex/*.23n -l 0,0,200 -s now -g 47 -a -d 1800 -v -i -r hackrf --disable-almanac  // e is input, l is loc, s is start time, g is gain, a is amplifier on/off, d is duration, r is radio mode, vi is verbose interactive
 
 Documentation:
 - This readme

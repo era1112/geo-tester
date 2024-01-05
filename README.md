@@ -17,6 +17,7 @@ Setup:
 - Broadcast research data:
   -   ./gps-sim -e rinex/*.23n -l 0,0,200 -s now -g 47 -a -d 1800 -v -i -r hackrf --disable-almanac
   -   e is input, l is loc, s is start time, g is gain, a is amplifier on/off, d is duration, r is radio mode, vi is verbose interactive
+  -   disable-almanac removes coarse almanac data data from the stream (more complex to transmit/recieve, not necessary for this purpose). 
 
 Documentation:
 - This readme

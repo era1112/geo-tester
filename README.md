@@ -5,7 +5,8 @@ Pairs great with https://github.com/era1112/pi-otg (gpio control of scripts)
 
 Findings:
 - "primitive" garmin-type gps's accept the stream and decode a position
-- "smarter" devices (ie. android handsets) recieve the beacons and enumerate SV's, but the OS does not accept it as a valid fix. Device does not throw a "gps error" state, seems to keep the last valid position or fails to provide a location without going into a "no location" alert.
+- "smarter" devices (ie. android handsets) recieve the beacons, enumerate SV's, but the kernel does not accept it as a valid lat/long.
+- However, the device does not enter a "gps error" state. It indefinitely holds in "waiting for fix" but never throws a "no location" alert. Some apps will continue to show that last known position.
 
 Setup:
 - Download real-world RINEX data:

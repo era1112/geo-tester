@@ -13,11 +13,7 @@ Setup:
   - https://cddis.nasa.gov/archive/gnss/data/daily/ (free login)
   - download the file at: /[current year]/[highest number]/??n/brdc*
 -  Produce research data:
-
-
-gps-sdr-sim -e <RINEX_FILE> -b 8 -l 0,0,200 -o ./researchtape.bin -v -s 2600000 -d 7200 -T 2021/02/23,20:34:00
-
-
+    - gps-sdr-sim -e <RINEX_FILE> -b 8 -l 0,0,200 -o ./researchtape.bin -v -s 2600000 -d 7200 -T 2021/02/23,20:34:00
     -    b8, s2600000 are rf parameters to match the hackrf, l is location in lat/long, 200 is elevation, d is length of tape in seconds, T is the start time and forces toc/toe to align, o is output file.
     
 - Modulate research data:

@@ -19,7 +19,9 @@ Setup:
     - b8, s2600000 are rf parameters to match the hackrf, l is location in lat/long, 200 is elevation, d is length of tape in seconds, T is the start time and forces toc/toe to align, o is output file.
     
 - Modulate research data:
+  ```
   -   ./gps-sim -e rinex/*.23n -l 0,0,200 -s now -g 47 -a -d 1800 -v -i -r hackrf --disable-almanac
+  ```
   -   e is input, l is loc, s is start time, g is gain, a sets amplifier on, d is duration, r is radio mode, vi is verbose interactive
   -   disable-almanac removes coarse almanac data from the stream (more complex to transmit/recieve, not necessary for this experiment). 
 

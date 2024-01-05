@@ -1,30 +1,28 @@
 # geo-tester
 Expriment with gps device behavior when passed different traffic.
+
 Pairs great with https://github.com/era1112/pi-otg (gpio control of scripts)
 
+Findings:
+- "primitive" garmin-type gps's accept the stream and decode a position
+- "smarter" devices (ie. android handsets) recieve the individual beacons, but the OS does not accept it as a valid fix. Device does not throw a "gps error" state, usually just keeps the gps position as the last valid position.
 
 Setup:
-- make "payload.sh" point at the script you want to run when you push the button.
-- look at the script that "interface.sh" points at, connect pushbutton to appropriate gpio pin. If you want to use a different gpio button or do more complex triggering, change the script.
-- set up systemctl to keep interface.sh running (see attached .docx).
-- reboot pi, push the button, your script will run
+- Download real-world RINEX data:
+  - https://cddis.nasa.gov/archive/gnss/data/daily/ (free login)
+  - download the file at: /<current year>/<highest number>/??n/brdc*
+-  Produce research data:
+  - gps-sdr-sim -e <RINEX_FILE> -b 8 -l <COORDS>,100   // b8 is the iq sample size in bytes, hackrf expects 8. coords is lat/long, 100 is elevation.
+- Broadcast research data:
+  - 
 
-Flow of control:
-- systemctl runs "pi-otg.service" at boot, which is responsible for keeping "interface.py" (symlink to the interface script you really want) running at all times.
-- the interface script polls on GPIO and calls "payload.sh" (symlink to the actual desired payload script) when the desired trigger is met (gpio, time, gps, whatever).
-- the payload script carries out the system functions when in the triggered state.
-
-Project layout:
-- interface.py and payload.sh are symlinks that you alter when you want a different trigger interface or payload
-- the interfaces and payloads folders have interfaces and payloads to choose from
-
-Docs:
-- main documentation is the docx at top level, although the project deviates some names and details
+Documentation:
+- This readme
 
 Dependencies:
-- python3, gpiozero. Maybe some other stuff, there's like 3 scripts, if it doesn't work then just read em lol.
+- hackrf, gnuradio, gnuradio-osmosdr, base-devel, multi-sdr-gps-sim
+- Download and make: https://github.com/osqzss/gps-sdr-sim 
+- Tested on hackrf one with 5cm dipole antenna
 
 Future:
-- add protection against multiple-execution of the payload
-- add on/off functionality of payload by pressing button
-- add LED indication of payload status
+- Antenna testing, more reciever-specific testing

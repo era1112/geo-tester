@@ -6,7 +6,7 @@ Pairs great with https://github.com/era1112/pi-otg (gpio control of scripts)
 Findings:
 - "primitive" garmin-type gps's accept the stream and decode a position
 - "smart" devices (ie. android handsets) quietly enter an undefined state, where the handset is unable to figure out where it is but never enters a "gps loss" state.
-  - The system indefinitely holds in "finding location" but never throws a "no location" alert. Some apps will continue to show that last known position.The device is also confused enough that it is unable to determine it's position through wifi location services.
+  - The system indefinitely holds in "finding location" but never throws a "no location" alert. Some apps will continue to show that last known position. The device is also confused enough that it is unable to determine it's position through wifi location services.
   - GPS debug tools show that the device recieves and decodes the beacons, enumerate SV's, but something prevents the kernel from delivering a "current location" to userland.
   - In this state, the device would not know it's accurate location, and since it never formally enters a "gps loss" state it would have no means of logging the interaction.
 
